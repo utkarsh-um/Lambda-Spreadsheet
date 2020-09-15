@@ -1,0 +1,29 @@
+In the spreadsheet module
+4 types are defined
+index : int*int
+range : (int*int)*(int*int)
+cell : Empty|Val of float
+sheet : cell array array
+
+My main sheet is called worksheet which is of the type sheet and dimensions 5000X5000 it is used in main function where it is filled with data from csv and then used in parser, where this sheet is the input to all functions.
+
+print_sheet : sheet->int->int->int->int->unit is the function defined in the module used for printing of sheet
+To use it print_sheet s 0 0 m n where s is the sheet to be printed and the sheet is printed within the range ([0,0]:[m-1,n-1])
+In parser after every grammar rule sheet is  printed with m and both 10
+
+Two Exceptions are defined in the module
+EMPTYCELLS 	: If any cell is empty in the range provided
+UNEQUALRANGE : If the two ranges to be operated upon are not of the same dimensions
+
+get : sheet->index->float returns the value at the index i of sheet s if empty then Exception raised
+
+In main.ml csv reading is performed and stored in the worksheet after loading data sheet is printed
+
+HOW TO RUN:
+
+To compile and link : use make command
+make command will generate a executable assignment4
+
+To run : ./assignment4 <path_to_csv_file> <m> <n> < <path_to_instruction_file>
+
+m and n are the dimensions of data in csv filled
